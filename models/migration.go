@@ -158,12 +158,12 @@ func addDefaultGroups() {
 
 func addDefaultUser() {
 	_, err := GetUserByID(1)
-	password := util.RandStringRunes(8)
+	password := "password"
 
 	// 未找到初始用户时，则创建
 	if gorm.IsRecordNotFoundError(err) {
 		defaultUser := NewUser()
-		defaultUser.Email = "admin@cloudreve.org"
+		defaultUser.Email = "root@openwrt"
 		defaultUser.Nick = "admin"
 		defaultUser.Status = Active
 		defaultUser.GroupID = 1
